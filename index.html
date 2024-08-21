@@ -1,9 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
+<html><head>
   <title>Tux Games</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
+@font-face {
+      font-family: 'Frutiger';
+      src: url('Frutiger.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
       background: url("Background.png") repeat;
       background-size: 20%;
@@ -11,71 +16,94 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Frutiger', sans-serif; /* Use Frutiger font */
     }
 
-    h1 {
-      margin-top: 20px;
-      font-size: 3em;
-      color: #333;
-    }
 
-    .game-container {
-      margin: 20px auto;
-      width: 80%;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+h1 {
+  margin-top: 20px;
+  font-size: 3em;
+  color: #333;
+}
 
-    .game-container iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 10px;
-      display: none; /* Initially hidden */
-    }
+.game-container {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent for glass effect */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(255, 255, 255, 0.4) inset; /* Depth and shine */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  position: relative;
+  overflow: hidden;
+}
 
-    .game-container button {
-      padding: 10px 20px;
-      font-size: 1em;
-      color: #fff;
-      background-color: #0078D4;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
+/* Adding a subtle gradient for a shiny top effect */
+.game-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  border-radius: 15px;
+  pointer-events: none;
+}
 
-    .game-container button:hover {
-      background-color: #0056A0;
-    }
+.game-container iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 10px;
+  display: none; /* Initially hidden */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Slight depth for iframe */
+}
 
-    .game-title {
-      color: #0078D4; /* Frutiger Aero accent color */
-      text-decoration: none;
-      font-size: 1.5em;
-      display: block;
-      margin-bottom: 10px;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
+.game-container button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background: rgba(0, 120, 212, 0.7); /* Semi-transparent blue for glass effect */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(255, 255, 255, 0.5) inset; /* Depth and shine */
+  backdrop-filter: blur(5px); /* Glassy effect */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
 
-    .game-title:hover {
-      color: #0056A0;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    }
+.game-container button:hover {
+  background: rgba(0, 120, 212, 0.9); /* Darker on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(255, 255, 255, 0.7) inset; /* Enhanced depth and shine on hover */
+}
 
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      .game-container {
-        width: 95%;
-      }
-      h1 {
-        font-size: 2em;
-      }
-    }
+.game-title {
+  color: #0078D4; /* Frutiger Aero accent color */
+  text-decoration: none;
+  font-size: 1.5em;
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.game-title:hover {
+  color: #0056A0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .game-container {
+    width: 95%;
+  }
+  h1 {
+    font-size: 2em;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -113,14 +141,14 @@
   </div>
 
   <div class="game-container">
-    <h2><a class="game-title" href="https://itch.io/embed-upload/8497025?color=333333&uuid=fb2ffce966871b9e1eff176bf1ab320e" target="_blank">Tux Dodger</a></h2>
-    <button onclick="playGame(this, 'https://itch.io/embed-upload/8497025?color=333333&uuid=fb2ffce966871b9e1eff176bf1ab320e')">Play</button>
+    <h2><a class="game-title" href="https://itch.io/embed-upload/8497025?color=333333&amp;uuid=fb2ffce966871b9e1eff176bf1ab320e" target="_blank">Tux Dodger</a></h2>
+    <button onclick="playGame(this, 'https://itch.io/embed-upload/8497025?color=333333&amp;uuid=fb2ffce966871b9e1eff176bf1ab320e')">Play</button>
     <iframe></iframe>
   </div>
 
   <div class="game-container">
-    <h2><a class="game-title" href="https://itch.io/embed-upload/8986094?color=333333&uuid=fb2ffce966871b9e1eff176bf1ab320e" target="_blank">Count Tux</a></h2>
-    <button onclick="playGame(this, 'https://itch.io/embed-upload/8986094?color=333333&uuid=fb2ffce966871b9e1eff176bf1ab320e')">Play</button>
+    <h2><a class="game-title" href="https://itch.io/embed-upload/8986094?color=333333&amp;uuid=fb2ffce966871b9e1eff176bf1ab320e" target="_blank">Count Tux</a></h2>
+    <button onclick="playGame(this, 'https://itch.io/embed-upload/8986094?color=333333&amp;uuid=fb2ffce966871b9e1eff176bf1ab320e')">Play</button>
     <iframe></iframe>
   </div>
 
@@ -185,8 +213,8 @@
   </div>
 
   <div class="game-container">
-    <h2><a class="game-title" href="https://itch.io/embed-upload/9671779?uuid=fb2ffce966871b9e1eff176bf1ab320e&color=333333" target="_blank">The legend of Tux</a></h2>
-    <button onclick="playGame(this, 'https://itch.io/embed-upload/9671779?uuid=fb2ffce966871b9e1eff176bf1ab320e&color=333333')">Play</button>
+    <h2><a class="game-title" href="https://itch.io/embed-upload/9671779?uuid=fb2ffce966871b9e1eff176bf1ab320e&amp;color=333333" target="_blank">The legend of Tux</a></h2>
+    <button onclick="playGame(this, 'https://itch.io/embed-upload/9671779?uuid=fb2ffce966871b9e1eff176bf1ab320e&amp;color=333333')">Play</button>
     <iframe></iframe>
   </div>
 
@@ -202,5 +230,6 @@
       }
     }
   </script>
-</body>
-</html>
+
+
+</body></html>
