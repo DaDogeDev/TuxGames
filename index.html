@@ -26,7 +26,7 @@ h1 {
   color: #333;
 }
 
-.game-container {
+.game-container, .discord {
   margin: 20px auto;
   width: 80%;
   max-width: 800px;
@@ -103,6 +103,15 @@ h1 {
     font-size: 2em;
   }
 }
+
+  .Discord button img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .Discord button:hover img {
+    transform: scale(1.1); /* Increase the size by 10% */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
 
   </style>
 </head>
@@ -223,9 +232,15 @@ h1 {
     <button onclick="playGame(this, 'https://itch.io/embed-upload/9671779?uuid=fb2ffce966871b9e1eff176bf1ab320e&amp;color=333333')">Play</button>
     <iframe></iframe>
   </div>
-  <div class="discord">
-    <iframe src="https://discord.com/widget?id=1279164425349365911&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-  </div>
+  
+<div class="Discord">
+  <h2><a class="game-title" href="https://discord.gg/AWHXUNHDbg" target="_blank">Join the Discord server!</a></h2>
+  <button onclick="window.location.href='https://discord.gg/AWHXUNHDbg'" style="background: none; border: none; padding: 0; cursor: pointer;">
+    <img src="Logo.png" alt="Discord Logo" style="width: 100px; height: 100px;">
+  </button>
+</div>
+
+
   <script>
     function playGame(button, url) {
       const iframe = button.nextElementSibling;
