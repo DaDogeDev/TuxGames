@@ -1,8 +1,10 @@
-<html><head>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tux Games</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
-@font-face {
+    @font-face {
       font-family: 'Frutiger';
       src: url('Frutiger.ttf') format('truetype');
       font-weight: normal;
@@ -16,112 +18,127 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      font-family: 'Frutiger', sans-serif; /* Use Frutiger font */
+      font-family: 'Frutiger', sans-serif;
     }
 
+    h1 {
+      color: #0078D4;
+      text-decoration: none;
+      font-size: 2.5em;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
 
-h1 {
-  margin-top: 20px;
-  font-size: 3em;
-  color: #333;
-}
+    .game-container, .Discord {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(255, 255, 255, 0.4) inset;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
 
-.game-container, .discord {
-  margin: 20px auto;
-  width: 80%;
-  max-width: 800px;
-  background: rgba(255, 255, 255, 0.6); /* Semi-transparent for glass effect */
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(255, 255, 255, 0.4) inset; /* Depth and shine */
-  backdrop-filter: blur(10px); /* Frosted glass effect */
-  position: relative;
-  overflow: hidden;
-}
+    .game-container:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+      border-radius: 15px;
+      pointer-events: none;
+    }
 
-/* Adding a subtle gradient for a shiny top effect */
-.game-container:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
-  border-radius: 15px;
-  pointer-events: none;
-}
+    .game-container iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+      display: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
 
-.game-container iframe {
-  width: 100%;
-  height: 500px;
-  border: none;
-  border-radius: 10px;
-  display: none; /* Initially hidden */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Slight depth for iframe */
-}
+    .game-container button {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #fff;
+      background: rgba(0, 120, 212, 0.7);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(255, 255, 255, 0.5) inset;
+      backdrop-filter: blur(5px);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
 
-.game-container button {
-  padding: 10px 20px;
-  font-size: 1em;
-  color: #fff;
-  background: rgba(0, 120, 212, 0.7); /* Semi-transparent blue for glass effect */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(255, 255, 255, 0.5) inset; /* Depth and shine */
-  backdrop-filter: blur(5px); /* Glassy effect */
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
+    .game-container button:hover {
+      background: rgba(0, 120, 212, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(255, 255, 255, 0.7) inset;
+    }
 
-.game-container button:hover {
-  background: rgba(0, 120, 212, 0.9); /* Darker on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(255, 255, 255, 0.7) inset; /* Enhanced depth and shine on hover */
-}
+    .game-title {
+      color: #0078D4;
+      text-decoration: none;
+      font-size: 1.5em;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
 
-.game-title {
-  color: #0078D4; /* Frutiger Aero accent color */
-  text-decoration: none;
-  font-size: 1.5em;
-  display: block;
-  margin-bottom: 10px;
-  transition: color 0.3s, text-shadow 0.3s;
-}
+    .game-title:hover {
+      color: #0056A0;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
 
-.game-title:hover {
-  color: #0056A0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
+    @media (max-width: 600px) {
+      .game-container {
+        width: 95%;
+      }
+      h1 {
+        font-size: 2em;
+      }
+    }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .game-container {
-    width: 95%;
-  }
-  h1 {
-    font-size: 2em;
-  }
-}
+    .Discord h2 {
+      color: #0078D4;
+      text-decoration: none;
+      font-size: 1.5em;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
 
-  .Discord button img {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+    .Discord button img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-  .Discord button:hover img {
-    transform: scale(1.1); /* Increase the size by 10% */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-  }
+    .Discord button:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
+    .Discord .banner {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
   <h1>Tux Games</h1>
-  <h1><img src="favicon.ico"></h1>
+  <h1><img src="favicon.ico" alt="Site Icon"></h1>
 
   <div class="FreePenguin">
-    <a href="http://www.free-penguin.org/" >
-    <img src="http://www.free-penguin.org/images/buttons/button_freepeng_100_a.png" alt="Homepage of free-penguin.org" border="0" title="go to free-penguin.org ... sew your own" />
+    <a href="http://www.free-penguin.org/">
+      <img src="http://www.free-penguin.org/images/buttons/button_freepeng_100_a.png" alt="Homepage of free-penguin.org" border="0" title="Go to free-penguin.org">
     </a>
   </div>
 
@@ -138,108 +155,48 @@ h1 {
   </div>
 
   <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/10621578/index.html" target="_blank">Tux vs Dragon</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/10621578/index.html')">Play</button>
+    <h2><a class="game-title" href="https://mrbid.github.io/tux-vs-dragon/" target="_blank">Tux vs Dragon</a></h2>
+    <button onclick="playGame(this, 'https://mrbid.github.io/tux-vs-dragon/')">Play</button>
     <iframe></iframe>
   </div>
 
   <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/7556430/index.html" target="_blank">Tux Planet Speedrun</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/7556430/index.html')">Play</button>
+    <h2><a class="game-title" href="https://mrbid.github.io/tux-planet-speedrun/" target="_blank">Tux Planet Speedrun</a></h2>
+    <button onclick="playGame(this, 'https://mrbid.github.io/tux-planet-speedrun/')">Play</button>
     <iframe></iframe>
   </div>
 
   <div class="game-container">
-    <h2><a class="game-title" href="https://tuxpusher.com/" target="_blank">Tux Pusher</a></h2>
-    <button onclick="playGame(this, 'https://tuxpusher.com/')">Play</button>
+    <h2><a class="game-title" href="https://mrbid.github.io/tux-pusher/" target="_blank">Tux Pusher</a></h2>
+    <button onclick="playGame(this, 'https://mrbid.github.io/tux-pusher/')">Play</button>
     <iframe></iframe>
   </div>
 
   <div class="game-container">
-    <h2><a class="game-title" href="https://itch.io/embed-upload/8497025?color=333333&amp;uuid=fb2ffce966871b9e1eff176bf1ab320e" target="_blank">Tux Dodger</a></h2>
-    <button onclick="playGame(this, 'https://itch.io/embed-upload/8497025?color=333333&amp;uuid=fb2ffce966871b9e1eff176bf1ab320e')">Play</button>
+    <h2><a class="game-title" href="https://mrbid.github.io/tux-ski-vacation/" target="_blank">Tux's Ski Vacation</a></h2>
+    <button onclick="playGame(this, 'https://mrbid.github.io/tux-ski-vacation/')">Play</button>
     <iframe></iframe>
   </div>
 
   <div class="game-container">
-    <h2><a class="game-title" href="https://itch.io/embed-upload/8986094?color=333333&amp;uuid=fb2ffce966871b9e1eff176bf1ab320e" target="_blank">Count Tux</a></h2>
-    <button onclick="playGame(this, 'https://itch.io/embed-upload/8986094?color=333333&amp;uuid=fb2ffce966871b9e1eff176bf1ab320e')">Play</button>
+    <h2><a class="game-title" href="https://mrbid.github.io/supertux-classic/" target="_blank">SuperTux Classic</a></h2>
+    <button onclick="playGame(this, 'https://mrbid.github.io/supertux-classic/')">Play</button>
     <iframe></iframe>
   </div>
 
   <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/8632835/index.html" target="_blank">SuperTux Classic</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/8632835/index.html')">Play</button>
+    <h2><a class="game-title" href="https://mrbid.github.io/supertux-advance/" target="_blank">SuperTux Advance</a></h2>
+    <button onclick="playGame(this, 'https://mrbid.github.io/supertux-advance/')">Play</button>
     <iframe></iframe>
   </div>
 
-  <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/3096621/index.html" target="_blank">Angry Tux</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/3096621/index.html')">Play</button>
-    <iframe></iframe>
+  <div class="Discord">
+    <h2><a class="game-title" href="https://discord.gg/AWHXUNHDbg" target="_blank">Join our Discord server!</a></h2>
+    <button onclick="window.location.href='https://discord.gg/AWHXUNHDbg'" style="background: none; border: none; padding: 0; cursor: pointer;">
+      <img src="Logo.png" alt="Discord Logo" style="width: 100px; height: 100px;">
+    </button>
+    <img src="https://cdn.discordapp.com/attachments/1279164737170444318/1284911677401337929/Banner.png?ex=66e85ac0&amp;is=66e70940&amp;hm=e232a88a5e776d098a626f22d93e31101ebae238ff65d2dc67bca8bb5934e73e&amp;" class="banner" alt="Discord Banner">
   </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/5479430/index.html" target="_blank">Tux Fight</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/5479430/index.html')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/4366447/index.html" target="_blank">Tux VS Yeti</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/4366447/index.html')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/4879102/tux_vs_boohwaer/index.html" target="_blank">Tux Bo'oh'o'Wa'er</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/4879102/tux_vs_boohwaer/index.html')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/7825661/index.html" target="_blank">Tux Cascade</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/7825661/index.html')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/11029501/0.0.7/index.html" target="_blank">Tux 3D</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/11029501/0.0.7/index.html')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/5159439/index.html" target="_blank">Flappy Tux</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/5159439/index.html')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/4232200/online/index.html" target="_blank">Super Tux Fanmade demo</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/4232200/online/index.html')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://html-classic.itch.zone/html/5742302/Jump and run game/Operation_Tux_for_feedback/index.html" target="_blank">Operation Tux</a></h2>
-    <button onclick="playGame(this, 'https://html-classic.itch.zone/html/5742302/Jump%20and%20run%20game/Operation_Tux_for_feedback/index.html')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://itch.io/embed-upload/9671779?uuid=fb2ffce966871b9e1eff176bf1ab320e&amp;color=333333" target="_blank">The legend of Tux</a></h2>
-    <button onclick="playGame(this, 'https://itch.io/embed-upload/9671779?uuid=fb2ffce966871b9e1eff176bf1ab320e&amp;color=333333')">Play</button>
-    <iframe></iframe>
-  </div>
-  
-<div class="Discord">
-  <h2><a class="game-title" href="https://discord.gg/AWHXUNHDbg" target="_blank">Join the Discord server!</a></h2>
-  <button onclick="window.location.href='https://discord.gg/AWHXUNHDbg'" style="background: none; border: none; padding: 0; cursor: pointer;">
-    <img src="Logo.png" alt="Discord Logo" style="width: 100px; height: 100px;">
-  </button>
-</div>
-
 
   <script>
     function playGame(button, url) {
