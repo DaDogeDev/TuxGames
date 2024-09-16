@@ -1,7 +1,7 @@
 <html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tux Games</title>
+  <title>theTuxClub.tar.gz</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
     @font-face {
@@ -23,15 +23,12 @@
 
     h1 {
       color: #626d80;
-      text-decoration: none;
       font-size: 2.5em;
-      display: block;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       margin-top: 10px;
-      transition: color 0.3s, text-shadow 0.3s;
     }
 
-    .game-container, .Discord {
+    .content-container {
       margin: 20px auto;
       width: 80%;
       max-width: 800px;
@@ -41,10 +38,9 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(255, 255, 255, 0.4) inset;
       backdrop-filter: blur(10px);
       position: relative;
-      overflow: hidden;
     }
 
-    .game-container:before {
+    .content-container:before {
       content: '';
       position: absolute;
       top: 0;
@@ -56,161 +52,100 @@
       pointer-events: none;
     }
 
-    .game-container iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 10px;
-      display: none;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    .section {
+      margin: 20px 0;
     }
 
-    .game-container button {
-      padding: 10px 20px;
-      font-size: 1em;
-      color: #fff;
-      background: rgba(0, 120, 212, 0.7);
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    .section h2 {
+      color: #0078D4;
+      font-size: 1.8em;
       margin-bottom: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(255, 255, 255, 0.5) inset;
-      backdrop-filter: blur(5px);
-      transition: background-color 0.3s, box-shadow 0.3s;
     }
 
-    .game-container button:hover {
-      background: rgba(0, 120, 212, 0.9);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(255, 255, 255, 0.7) inset;
+    .section p {
+      color: #333;
+      font-size: 1.2em;
+      line-height: 1.6em;
     }
 
-    .game-title {
+    a {
       color: #0078D4;
       text-decoration: none;
-      font-size: 1.5em;
-      display: block;
-      margin-bottom: 10px;
-      transition: color 0.3s, text-shadow 0.3s;
+      font-size: 1.2em;
+      display: inline-block;
+      margin: 10px;
     }
 
-    .game-title:hover {
-      color: #0056A0;
+    a:hover {
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     @media (max-width: 600px) {
-      .game-container {
+      .content-container {
         width: 95%;
       }
       h1 {
         font-size: 2em;
       }
     }
-
-    .Discord h2 {
-      color: #0078D4;
-      text-decoration: none;
-      font-size: 1.5em;
-      display: block;
-      margin-bottom: 10px;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
-
-    .Discord button img {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .Discord button:hover img {
-      transform: scale(1.1);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
+    
     .Discord .banner {
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-      border-radius: 10px;
-    }
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.content-container .family {
+   width: 70%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+  .Discord button img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .Discord button:hover img {
+    transform: scale(1.1); /* Increase the size by 10% */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
   </style>
 </head>
 <body>
-  <h1>Tux Games</h1>
-  <h1><img src="favicon.ico" alt="Site Icon"></h1>
 
-  <div class="FreePenguin">
-    <a href="http://www.free-penguin.org/">
-      <img src="http://www.free-penguin.org/images/buttons/button_freepeng_100_a.png" alt="Homepage of free-penguin.org" border="0" title="Go to free-penguin.org">
+  <h1>theTuxClub.tar.gz</h1>
+
+  <div class="content-container">
+    <div class="section">
+      <h2>Welcome to theTuxClub.tar.gz!</h2>
+      <p>Your go-to resource for all things Linux. Whether you’re a beginner looking for tutorials or a power user searching for the latest tips, we’ve got you covered. Check out our guides below and dive into the world of open-source software!</p>
+      <h1><img class ="Family" src="TuxFamily.png"></h1>
+    </div>
+<div class="FreePenguin">
+    <a href="http://www.free-penguin.org/" >
+    <img src="http://www.free-penguin.org/images/buttons/button_freepeng_100_a.png" alt="Homepage of free-penguin.org" border="0" title="go to free-penguin.org ... sew your own" />
     </a>
   </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://mrbid.github.io/tuxocide/" target="_blank">Tuxocide</a></h2>
-    <button onclick="playGame(this, 'https://mrbid.github.io/tuxocide/')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://mrbid.github.io/tuxscape/" target="_blank">TuxScape</a></h2>
-    <button onclick="playGame(this, 'https://mrbid.github.io/tuxscape/')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://mrbid.github.io/tux-vs-dragon/" target="_blank">Tux vs Dragon</a></h2>
-    <button onclick="playGame(this, 'https://mrbid.github.io/tux-vs-dragon/')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://mrbid.github.io/tux-planet-speedrun/" target="_blank">Tux Planet Speedrun</a></h2>
-    <button onclick="playGame(this, 'https://mrbid.github.io/tux-planet-speedrun/')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://mrbid.github.io/tux-pusher/" target="_blank">Tux Pusher</a></h2>
-    <button onclick="playGame(this, 'https://mrbid.github.io/tux-pusher/')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://mrbid.github.io/tux-ski-vacation/" target="_blank">Tux's Ski Vacation</a></h2>
-    <button onclick="playGame(this, 'https://mrbid.github.io/tux-ski-vacation/')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://mrbid.github.io/supertux-classic/" target="_blank">SuperTux Classic</a></h2>
-    <button onclick="playGame(this, 'https://mrbid.github.io/supertux-classic/')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="game-container">
-    <h2><a class="game-title" href="https://mrbid.github.io/supertux-advance/" target="_blank">SuperTux Advance</a></h2>
-    <button onclick="playGame(this, 'https://mrbid.github.io/supertux-advance/')">Play</button>
-    <iframe></iframe>
-  </div>
-
-  <div class="Discord">
+    <div class="section">
+      <h2>Popular Guides</h2>
+      <a href="roblox-on-linux.html">How to Play Roblox on Linux</a>
+      <a href="custom-tuxes.html">Custom Tux Avatars &amp; Tutorials</a>
+    </div>
+    <div class="games">
+      <a href="games.html"><h2>Tux Games</h2></a>
+      <h1><img src="favicon.ico" alt="Site Icon"></h1>
+    </div>
+    <div class="Discord">
     <h2><a class="game-title" href="https://discord.gg/AWHXUNHDbg" target="_blank">Join our Discord server!</a></h2>
     <button onclick="window.location.href='https://discord.gg/AWHXUNHDbg'" style="background: none; border: none; padding: 0; cursor: pointer;">
       <img src="Logo.png" alt="Discord Logo" style="width: 100px; height: 100px;">
     </button>
     <img src="https://cdn.discordapp.com/attachments/1279164737170444318/1284911677401337929/Banner.png?ex=66e85ac0&amp;is=66e70940&amp;hm=e232a88a5e776d098a626f22d93e31101ebae238ff65d2dc67bca8bb5934e73e&amp;" class="banner" alt="Discord Banner">
   </div>
+  </div>
 
-  <script>
-    function playGame(button, url) {
-      const iframe = button.nextElementSibling;
-      if (iframe.style.display === 'none') {
-        iframe.src = url;
-        iframe.style.display = 'block';
-      } else {
-        iframe.style.display = 'none';
-        iframe.src = '';
-      }
-    }
-  </script>
 
 
 </body></html>
